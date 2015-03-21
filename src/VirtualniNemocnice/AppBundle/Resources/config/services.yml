@@ -1,0 +1,4 @@
+services:
+#    virtualni_nemocnice_app.example:
+#        class: VirtualniNemocnice\AppBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

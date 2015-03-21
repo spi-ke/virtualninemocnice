@@ -1,0 +1,3 @@
+virtualni_nemocnice_app:
+    resource: "@VirtualniNemocniceAppBundle/Resources/config/routing.yml"
+    prefix:   /
