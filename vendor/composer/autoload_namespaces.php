@@ -10,7 +10,6 @@ return array(
     'Twig_' => array($vendorDir . '/twig/twig/lib'),
     'Symfony\\' => array($vendorDir . '/symfony/symfony/src'),
     'SymfonyStandard' => array($baseDir . '/app'),
-    'Sensio\\Bundle\\GeneratorBundle' => array($vendorDir . '/sensio/generator-bundle'),
     'Sensio\\Bundle\\FrameworkExtraBundle' => array($vendorDir . '/sensio/framework-extra-bundle'),
     'Sensio\\Bundle\\DistributionBundle' => array($vendorDir . '/sensio/distribution-bundle'),
     'SensioLabs\\Security' => array($vendorDir . '/sensiolabs/security-checker'),
