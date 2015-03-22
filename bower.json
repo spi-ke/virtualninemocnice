@@ -1,0 +1,9 @@
+{
+    "name": "virtualninemocnice",
+    "version": "1.0.0",
+    "dependencies": {
+        "bootstrap": "~3.2.0"
+    },
+    "description": "Co budeme delat",
+    "main": "src/VirtualniNemocnice/AppBundle/Resources/public/css/style.css"
+}

@@ -11,7 +11,7 @@ class DefaultController extends Controller
     /**
      * @param $name
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/{name}", name="home")
+     * @Route("/{name}", name="homeWithParam", defaults={"name" = "World"})
      * @Template
      */
     public function indexAction($name)

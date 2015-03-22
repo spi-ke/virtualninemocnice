@@ -6,8 +6,11 @@ app/logs/*
 !app/cache/.gitkeep
 !app/logs/.gitkeep
 bin
-vendor
 virtualniNemocnice.iml
 .idea
 
 
+
+bower_components
+node_modules
+vendor
