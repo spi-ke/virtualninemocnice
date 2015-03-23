@@ -10049,3 +10049,7 @@
 [2015-03-23 01:54:18] event.DEBUG: Notified event "console.terminate" to listener "Symfony\Bundle\SwiftmailerBundle\EventListener\EmailSenderListener::onTerminate". [] []
 [2015-03-23 01:54:18] event.DEBUG: Notified event "console.terminate" to listener "Symfony\Bridge\Monolog\Handler\ConsoleHandler::onTerminate". [] []
 [2015-03-23 01:54:18] event.DEBUG: Notified event "console.terminate" to listener "Symfony\Bridge\Monolog\Handler\ConsoleHandler::onTerminate". [] []
+[2015-03-23 15:05:41] request.INFO: Matched route "home" (parameters: "name": "World", "_controller": "VirtualniNemocnice\AppBundle\Controller\DefaultController::indexAction", "_route": "home") [] []
+[2015-03-23 15:05:42] request.INFO: Matched route "_wdt" (parameters: "_controller": "web_profiler.controller.profiler:toolbarAction", "token": "f7f978", "_route": "_wdt") [] []
+[2015-03-23 15:11:57] request.INFO: Matched route "home" (parameters: "name": "World", "_controller": "VirtualniNemocnice\AppBundle\Controller\DefaultController::indexAction", "_route": "home") [] []
+[2015-03-23 15:11:57] request.INFO: Matched route "_wdt" (parameters: "_controller": "web_profiler.controller.profiler:toolbarAction", "token": "5def44", "_route": "_wdt") [] []

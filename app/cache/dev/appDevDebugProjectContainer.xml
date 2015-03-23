@@ -391,18 +391,7 @@
     <parameter key="monolog.elastica.client.class">Elastica\Client</parameter>
     <parameter key="monolog.swift_mailer.handlers" type="collection"/>
     <parameter key="monolog.handlers_to_channels" type="collection">
-      <parameter key="monolog.handler.console_very_verbose" type="collection">
-        <parameter key="type">inclusive</parameter>
-        <parameter key="elements" type="collection">
-          <parameter>doctrine</parameter>
-        </parameter>
-      </parameter>
-      <parameter key="monolog.handler.console" type="collection">
-        <parameter key="type">exclusive</parameter>
-        <parameter key="elements" type="collection">
-          <parameter>doctrine</parameter>
-        </parameter>
-      </parameter>
+      <parameter key="monolog.handler.console">null</parameter>
       <parameter key="monolog.handler.main">null</parameter>
     </parameter>
     <parameter key="swiftmailer.class">Swift_Mailer</parameter>
@@ -2659,10 +2648,6 @@
         <argument>Symfony\Bridge\Monolog\Handler\ConsoleHandler</argument>
       </call>
       <call method="addSubscriberService">
-        <argument>monolog.handler.console_very_verbose</argument>
-        <argument>Symfony\Bridge\Monolog\Handler\ConsoleHandler</argument>
-      </call>
-      <call method="addSubscriberService">
         <argument>swiftmailer.email_sender.listener</argument>
         <argument>Symfony\Bundle\SwiftmailerBundle\EventListener\EmailSenderListener</argument>
       </call>
@@ -3261,7 +3246,7 @@
     </service>
     <service id="monolog.handler.main" class="Monolog\Handler\StreamHandler">
       <argument>/Users/zavadsky/Sites/virtualniNemocnice/app/logs/dev.log</argument>
-      <argument>100</argument>
+      <argument>200</argument>
       <argument>true</argument>
       <argument>null</argument>
     </service>
@@ -3269,23 +3254,7 @@
       <tag name="kernel.event_subscriber"/>
       <argument>null</argument>
       <argument>false</argument>
-      <argument type="collection">
-        <argument key="2">200</argument>
-        <argument key="3">100</argument>
-        <argument key="1">300</argument>
-        <argument key="4">100</argument>
-      </argument>
-    </service>
-    <service id="monolog.handler.console_very_verbose" class="Symfony\Bridge\Monolog\Handler\ConsoleHandler">
-      <tag name="kernel.event_subscriber"/>
-      <argument>null</argument>
-      <argument>false</argument>
-      <argument type="collection">
-        <argument key="2">250</argument>
-        <argument key="3">250</argument>
-        <argument key="4">100</argument>
-        <argument key="1">300</argument>
-      </argument>
+      <argument type="collection"/>
     </service>
     <service id="swiftmailer.email_sender.listener" class="Symfony\Bundle\SwiftmailerBundle\EventListener\EmailSenderListener">
       <tag name="kernel.event_subscriber"/>
@@ -4006,7 +3975,7 @@
     <service id="monolog.logger.doctrine" class="Symfony\Bridge\Monolog\Logger">
       <argument>doctrine</argument>
       <call method="pushHandler">
-        <argument type="service" id="monolog.handler.console_very_verbose"/>
+        <argument type="service" id="monolog.handler.console"/>
       </call>
       <call method="pushHandler">
         <argument type="service" id="monolog.handler.main"/>

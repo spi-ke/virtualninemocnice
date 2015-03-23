@@ -29,6 +29,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git://virtualninemocnice.heroku.com"
+        "url": "git://virtualninemocnice.herokuapp.com"
     }
 }

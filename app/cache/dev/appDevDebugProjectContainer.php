@@ -155,7 +155,6 @@ class appDevDebugProjectContainer extends Container
             'locale_listener' => 'getLocaleListenerService',
             'logger' => 'getLoggerService',
             'monolog.handler.console' => 'getMonolog_Handler_ConsoleService',
-            'monolog.handler.console_very_verbose' => 'getMonolog_Handler_ConsoleVeryVerboseService',
             'monolog.handler.debug' => 'getMonolog_Handler_DebugService',
             'monolog.handler.main' => 'getMonolog_Handler_MainService',
             'monolog.logger.assetic' => 'getMonolog_Logger_AsseticService',
@@ -917,7 +916,6 @@ class appDevDebugProjectContainer extends Container
         $instance->addSubscriberService('security.rememberme.response_listener', 'Symfony\\Component\\Security\\Http\\RememberMe\\ResponseListener');
         $instance->addSubscriberService('twig.exception_listener', 'Symfony\\Component\\HttpKernel\\EventListener\\ExceptionListener');
         $instance->addSubscriberService('monolog.handler.console', 'Symfony\\Bridge\\Monolog\\Handler\\ConsoleHandler');
-        $instance->addSubscriberService('monolog.handler.console_very_verbose', 'Symfony\\Bridge\\Monolog\\Handler\\ConsoleHandler');
         $instance->addSubscriberService('swiftmailer.email_sender.listener', 'Symfony\\Bundle\\SwiftmailerBundle\\EventListener\\EmailSenderListener');
         $instance->addSubscriberService('sensio_framework_extra.controller.listener', 'Sensio\\Bundle\\FrameworkExtraBundle\\EventListener\\ControllerListener');
         $instance->addSubscriberService('sensio_framework_extra.converter.listener', 'Sensio\\Bundle\\FrameworkExtraBundle\\EventListener\\ParamConverterListener');
@@ -1918,20 +1916,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getMonolog_Handler_ConsoleService()
     {
-        return $this->services['monolog.handler.console'] = new \Symfony\Bridge\Monolog\Handler\ConsoleHandler(NULL, false, array(2 => 200, 3 => 100, 1 => 300, 4 => 100));
-    }
-
-    /**
-     * Gets the 'monolog.handler.console_very_verbose' service.
-     *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bridge\Monolog\Handler\ConsoleHandler A Symfony\Bridge\Monolog\Handler\ConsoleHandler instance.
-     */
-    protected function getMonolog_Handler_ConsoleVeryVerboseService()
-    {
-        return $this->services['monolog.handler.console_very_verbose'] = new \Symfony\Bridge\Monolog\Handler\ConsoleHandler(NULL, false, array(2 => 250, 3 => 250, 4 => 100, 1 => 300));
+        return $this->services['monolog.handler.console'] = new \Symfony\Bridge\Monolog\Handler\ConsoleHandler(NULL, false, array());
     }
 
     /**
@@ -1957,7 +1942,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getMonolog_Handler_MainService()
     {
-        return $this->services['monolog.handler.main'] = new \Monolog\Handler\StreamHandler(($this->targetDirs[2].'/logs/dev.log'), 100, true, NULL);
+        return $this->services['monolog.handler.main'] = new \Monolog\Handler\StreamHandler(($this->targetDirs[2].'/logs/dev.log'), 200, true, NULL);
     }
 
     /**
@@ -1991,7 +1976,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['monolog.logger.doctrine'] = $instance = new \Symfony\Bridge\Monolog\Logger('doctrine');
 
-        $instance->pushHandler($this->get('monolog.handler.console_very_verbose'));
+        $instance->pushHandler($this->get('monolog.handler.console'));
         $instance->pushHandler($this->get('monolog.handler.main'));
         $instance->pushHandler($this->get('monolog.handler.debug'));
 
@@ -4679,18 +4664,7 @@ class appDevDebugProjectContainer extends Container
 
             ),
             'monolog.handlers_to_channels' => array(
-                'monolog.handler.console_very_verbose' => array(
-                    'type' => 'inclusive',
-                    'elements' => array(
-                        0 => 'doctrine',
-                    ),
-                ),
-                'monolog.handler.console' => array(
-                    'type' => 'exclusive',
-                    'elements' => array(
-                        0 => 'doctrine',
-                    ),
-                ),
+                'monolog.handler.console' => NULL,
                 'monolog.handler.main' => NULL,
             ),
             'swiftmailer.class' => 'Swift_Mailer',
