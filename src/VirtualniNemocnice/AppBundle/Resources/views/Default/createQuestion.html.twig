@@ -1,0 +1,44 @@
+{% extends '@VirtualniNemocniceApp/base.html.twig' %}
+
+{% block content %}
+
+    <!-- Portfolio Item Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Průvodce zadání dotazu
+                <small>{{ flow.currentStepDescription }}</small>
+            </h1>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Portfolio Item Row -->
+    <div class="row">
+
+        <div class="col-md-8">
+
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+
+            {{ form_rest(form) }}
+
+            {% include 'CraueFormFlowBundle:FormFlow:buttons.html.twig' %}
+            {{ form_end(form) }}
+
+        </div>
+
+        <div class="col-md-4">
+            <h3>Průběh vytváření dotazu</h3>
+
+
+            <div>
+                Kroky:
+                {% include 'CraueFormFlowBundle:FormFlow:stepList.html.twig' %}
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /.row -->
+
+{% endblock %}

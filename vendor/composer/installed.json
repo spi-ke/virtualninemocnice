@@ -1706,5 +1706,159 @@
             }
         ],
         "description": "This bundle generates code for you"
+    },
+    {
+        "name": "craue/formflow-bundle",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "target-dir": "Craue/FormFlowBundle",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/craue/CraueFormFlowBundle.git",
+            "reference": "8d62e90ad0769d47835ac72191119a2ef7ce5a42"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/craue/CraueFormFlowBundle/zipball/8d62e90ad0769d47835ac72191119a2ef7ce5a42",
+            "reference": "8d62e90ad0769d47835ac72191119a2ef7ce5a42",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.2",
+            "symfony/form": "~2.3",
+            "symfony/http-kernel": "~2.3",
+            "symfony/translation": "~2.3",
+            "symfony/yaml": "~2.3"
+        },
+        "require-dev": {
+            "doctrine/common": "~2.3",
+            "phpunit/phpunit": "~4.1",
+            "sensio/framework-extra-bundle": "~2.1|~3.0",
+            "symfony/symfony": "~2.3"
+        },
+        "time": "2015-03-06 08:36:29",
+        "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Craue\\FormFlowBundle\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Christian Raue",
+                "email": "christian.raue@gmail.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://github.com/craue/CraueFormFlowBundle/contributors"
+            }
+        ],
+        "description": "Multi-step forms for your Symfony2 project.",
+        "homepage": "https://github.com/craue/CraueFormFlowBundle",
+        "keywords": [
+            "Symfony2",
+            "form"
+        ]
+    },
+    {
+        "name": "braincrafted/bootstrap-bundle",
+        "version": "v2.1.2",
+        "version_normalized": "2.1.2.0",
+        "target-dir": "Braincrafted/Bundle/BootstrapBundle",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/braincrafted/bootstrap-bundle.git",
+            "reference": "c301bae8ba91b1a6f1045919b16f9cb9b62c7e7b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/braincrafted/bootstrap-bundle/zipball/c301bae8ba91b1a6f1045919b16f9cb9b62c7e7b",
+            "reference": "c301bae8ba91b1a6f1045919b16f9cb9b62c7e7b",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3",
+            "symfony/console": "~2.3",
+            "symfony/finder": "~2.3",
+            "symfony/form": "~2.3",
+            "symfony/framework-bundle": "~2.3",
+            "symfony/twig-bundle": "~2.3"
+        },
+        "require-dev": {
+            "knplabs/knp-menu": "~2.0@alpha",
+            "knplabs/knp-menu-bundle": "~2.0@alpha",
+            "knplabs/knp-paginator-bundle": "dev-master",
+            "mockery/mockery": "0.9.*",
+            "phpunit/phpunit": "3.7.*",
+            "symfony/assetic-bundle": "~2.3"
+        },
+        "suggest": {
+            "knplabs/knp-menu": "Required to use KnpMenuBundle.",
+            "knplabs/knp-menu-bundle": "BraincraftedBootstrapBundle styles the menus provided by KnpMenuBundle.",
+            "knplabs/knp-paginator-bundle": "BraincraftedBootstrapBundle styles the pagination provided by KnpPaginatorBundle.",
+            "twbs/bootstrap": "Twitter Bootstrap provides the assets (images, CSS and JS)"
+        },
+        "time": "2015-03-06 12:14:13",
+        "type": "symfony-bundle",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Braincrafted\\Bundle\\BootstrapBundle": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Florian Eckerstorfer",
+                "email": "florian@eckerstorfer.co",
+                "homepage": "http://florian.ec"
+            }
+        ],
+        "description": "BraincraftedBootstrapBundle integrates Bootstrap into Symfony2 by providing templates, Twig extensions, services and commands.",
+        "keywords": [
+            "bootstrap"
+        ]
+    },
+    {
+        "name": "twbs/bootstrap",
+        "version": "v2.3.2",
+        "version_normalized": "2.3.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/twbs/bootstrap.git",
+            "reference": "b4c4072679943773a7582daa63f545ba818fa627"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/twbs/bootstrap/zipball/b4c4072679943773a7582daa63f545ba818fa627",
+            "reference": "b4c4072679943773a7582daa63f545ba818fa627",
+            "shasum": ""
+        },
+        "time": "2013-07-27 06:36:38",
+        "type": "library",
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "Sleek, intuitive, and powerful front-end framework for faster and easier web development.",
+        "homepage": "http://twbs.github.com/bootstrap/",
+        "keywords": [
+            "bootstrap",
+            "css"
+        ]
     }
 ]

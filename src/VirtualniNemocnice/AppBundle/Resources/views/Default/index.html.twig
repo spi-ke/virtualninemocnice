@@ -1,1 +1,9 @@
-Hello {{ name }}!
+{% extends '@VirtualniNemocniceApp/base.html.twig' %}
+
+{% block content %}
+
+    <h2>Poradna test</h2>
+    <a href="{{ path('createQuestion') }}">Přejít k vytvoření dotazu</a>
+
+
+{% endblock %}

@@ -17,10 +17,11 @@ module.exports = function (grunt) {
             },
             js_app: {
                 src: [
+                    '<%= config.bower.directory %>/jquery/dist/js/jquery.min.js',
                     '<%= config.bower.directory %>/bootstrap/dist/js/bootstrap.js',
                     '<%= config.resources %>/js/base.js'
                 ],
-                dest: './src/VirtualniNemocnice/AppBundle/Resources/public/js/base.js'
+                dest: './src/VirtualniNemocnice/AppBundle/Resources/public/js/script.js'
             }
         },
         less: {
@@ -39,7 +40,7 @@ module.exports = function (grunt) {
             },
             app: {
                 files: {
-                    '<%= config.dist %>/js/base.js': '<% config.resources %>/js/base.js'
+                    '<%= config.dist %>/js/script.js': '<% config.resources %>/js/script.js'
                 }
             }
         },
