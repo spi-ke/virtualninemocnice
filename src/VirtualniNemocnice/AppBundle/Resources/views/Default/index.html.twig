@@ -1,9 +1,43 @@
 {% extends '@VirtualniNemocniceApp/base.html.twig' %}
 
 {% block content %}
+    {% include 'BraincraftedBootstrapBundle::flash.html.twig' %}
 
-    <h2>Poradna test</h2>
-    <a href="{{ path('createQuestion') }}">Přejít k vytvoření dotazu</a>
-
+    <div class="row">
+        <div class="col-md-10">
+            <h2>Poradna test</h2>
+            <a href="{{ path('createQuestion') }}">Přejít k vytvoření dotazu</a>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-10">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th colspan="2">
+                        Všechny zadané dotazy
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                        Dotaz
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for questin in questines %}
+                    <tr>
+                        <th><a href="{{ path('detailQuestion') }}">{{ questin.email }}</a></th>
+                        <td>{{ questin.query }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 {% endblock %}

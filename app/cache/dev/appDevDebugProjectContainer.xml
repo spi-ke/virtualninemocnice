@@ -188,7 +188,7 @@
     <parameter key="profiler.storage.username"></parameter>
     <parameter key="profiler.storage.password"></parameter>
     <parameter key="profiler.storage.lifetime">86400</parameter>
-    <parameter key="translator.logging">false</parameter>
+    <parameter key="translator.logging">true</parameter>
     <parameter key="router.class">Symfony\Bundle\FrameworkBundle\Routing\Router</parameter>
     <parameter key="router.request_context.class">Symfony\Component\Routing\RequestContext</parameter>
     <parameter key="routing.loader.class">Symfony\Bundle\FrameworkBundle\Routing\DelegatingLoader</parameter>
@@ -712,7 +712,7 @@
     </service>
     <service id="translator_listener" class="Symfony\Component\HttpKernel\EventListener\TranslatorListener">
       <tag name="kernel.event_subscriber"/>
-      <argument type="service" id="translator.default"/>
+      <argument type="service" id="translator"/>
       <argument type="service" id="request_stack"/>
     </service>
     <service id="http_kernel" class="Symfony\Component\HttpKernel\DependencyInjection\ContainerAwareHttpKernel">
@@ -1745,6 +1745,12 @@
         <argument>validators</argument>
       </call>
       <call method="addResource">
+        <argument>yml</argument>
+        <argument>/Users/zavadsky/Sites/virtualniNemocnice/src/VirtualniNemocnice/AppBundle/Resources/translations/messages.cs.yml</argument>
+        <argument>cs</argument>
+        <argument>messages</argument>
+      </call>
+      <call method="addResource">
         <argument>xlf</argument>
         <argument>/Users/zavadsky/Sites/virtualniNemocnice/src/VirtualniNemocnice/AppBundle/Resources/translations/messages.fr.xlf</argument>
         <argument>fr</argument>
@@ -2229,7 +2235,7 @@
     </service>
     <service id="templating.helper.translator" class="Symfony\Bundle\FrameworkBundle\Templating\Helper\TranslatorHelper">
       <tag name="templating.helper" alias="translator"/>
-      <argument type="service" id="translator.default"/>
+      <argument type="service" id="translator"/>
     </service>
     <service id="templating.helper.form" class="Symfony\Bundle\FrameworkBundle\Templating\Helper\FormHelper">
       <tag name="templating.helper" alias="form"/>
@@ -2272,7 +2278,7 @@
         </argument>
       </call>
       <call method="setTranslator">
-        <argument type="service" id="translator.default"/>
+        <argument type="service" id="translator"/>
       </call>
       <call method="setTranslationDomain">
         <argument>validators</argument>
@@ -3067,7 +3073,7 @@
         <argument type="service">
           <service class="Symfony\Bridge\Twig\Extension\TranslationExtension" public="false">
             <tag name="twig.extension"/>
-            <argument type="service" id="translator.default"/>
+            <argument type="service" id="translator"/>
           </service>
         </argument>
       </call>
@@ -3708,7 +3714,7 @@
     <service id="craue.form.flow.event_listener.previous_step_invalid" class="Craue\FormFlowBundle\EventListener\PreviousStepInvalidEventListener">
       <tag name="kernel.event_listener" event="%craue.form.flow.event_listener.previous_step_invalid.event%" method="onPreviousStepInvalid"/>
       <call method="setTranslator">
-        <argument type="service" id="translator.default"/>
+        <argument type="service" id="translator"/>
       </call>
     </service>
     <service id="twig.extension.craue_formflow" class="Craue\FormFlowBundle\Twig\Extension\FormFlowExtension">
@@ -3737,6 +3743,9 @@
       <call method="setFormType">
         <argument type="service" id="app.form.createquestion"/>
       </call>
+    </service>
+    <service id="patient.repository" class="VirtualniNemocnice\AppBundle\Repository\PatientRepository" factory-method="getRepository" factory-service="doctrine.orm.entity_manager">
+      <argument>VirtualniNemocniceAppBundle:Patient</argument>
     </service>
     <service id="data_collector.dump" class="Symfony\Component\HttpKernel\DataCollector\DumpDataCollector">
       <tag name="data_collector" id="dump" template="@Debug/Profiler/dump.html.twig"/>
@@ -4029,6 +4038,11 @@
       <argument type="service" id="templating.locator"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
+    <service id="translator" class="Symfony\Component\Translation\LoggingTranslator">
+      <tag name="monolog.logger" channel="translation"/>
+      <argument type="service" id="translator.default"/>
+      <argument type="service" id="monolog.logger.translation"/>
+    </service>
     <service id="router" class="Symfony\Bundle\FrameworkBundle\Routing\Router">
       <tag name="monolog.logger" channel="router"/>
       <argument type="service" id="service_container"/>
@@ -4203,7 +4217,6 @@
       <argument type="service" id="craue.form.flow.storage"/>
     </service>
     <service id="session.storage" alias="session.storage.native"/>
-    <service id="translator" alias="translator.default"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher"/>
     <service id="debug.templating.engine.twig" alias="templating"/>
     <service id="swiftmailer.spool" alias="swiftmailer.mailer.default.spool"/>

@@ -1,0 +1,111 @@
+{% extends '@VirtualniNemocniceApp/base.html.twig' %}
+
+{% block content %}
+
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Průvodce zadání dotazu
+                <small>{{ flow.currentStepLabel }}</small>
+            </h1>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+
+        <div class="col-md-8">
+
+
+            {% if flow.getCurrentStepNumber() == 3 %}
+
+                {#{{ dump(flow.formData) }}#}
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th colspan="2">
+                            Zadané vstupní údaje
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{ flow.formData.email }}</td>
+                    </tr>
+                    {% if flow.formData.phone %}
+                        <tr>
+                            <th>Telefon</th>
+                            <td>{{ flow.formData.phone }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if flow.formData.age %}
+                        <tr>
+                            <th>Věk</th>
+                            <td>{{ flow.formdata.age }} let</td>
+                        </tr>
+                    {% endif %}
+                    {% if flow.formData.illness %}
+                        <tr>
+                            <th>Prodělané nemoci</th>
+                            <td>{{ flow.formdata.illness }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if flow.formData.familyIllness %}
+                        <tr>
+                            <th>Nemoci v rodině</th>
+                            <td>{{ flow.formdata.familyIllness }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if flow.formData.medications %}
+                        <tr>
+                            <th>Věk</th>
+                            <td>{{ flow.formdata.medications }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if flow.formData.surgicalProcedures %}
+                        <tr>
+                            <th>Operační zákroky</th>
+                            <td>{{ flow.formdata.surgicalProcedures }}</td>
+                        </tr>
+                    {% endif %}
+
+                    <tr>
+                        <th>Dotaz</th>
+                        <td>{{ flow.formdata.query }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            {% endif %}
+
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+
+            {{ form_rest(form) }}
+
+            {% include 'CraueFormFlowBundle:FormFlow:buttons.html.twig' with {
+            craue_formflow_button_class_last: 'btn btn-primary',
+            craue_formflow_button_class_next: 'btn btn-primary',
+            craue_formflow_button_class_back: 'btn',
+            craue_formflow_button_class_reset: 'btn btn-warning',
+            } %}
+
+            {{ form_end(form) }}
+
+        </div>
+
+        <div class="col-md-4">
+            <h3>Průběh vytváření dotazu</h3>
+
+            <div>
+                Kroky:
+                {% include 'CraueFormFlowBundle:FormFlow:stepList.html.twig' %}
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}

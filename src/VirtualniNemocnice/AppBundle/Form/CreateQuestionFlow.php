@@ -28,15 +28,18 @@ class CreateQuestionFlow extends FormFlow
     {
         return array(
             array(
-                'label' => 'základní údaje',
+                'label' => 'Základní informace',
                 'type' => $this->formType,
             ),
             array(
-                'label' => 'dotaz',
+                'label' => 'Dotaz',
                 'type' => $this->formType,
             ),
             array(
-                'label' => 'platba',
+                'label' => 'Shrnutí',
+            ),
+            array(
+                'label' => 'Platba',
                 'type' => $this->formType,
             ),
         );

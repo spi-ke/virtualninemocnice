@@ -45,16 +45,19 @@ class EntityRepository implements ObjectRepository, Selectable
 {
     /**
      * @var string
+     * @Doctrine\ORM\Mapping\Column(type="string")
      */
     protected $_entityName;
 
     /**
      * @var EntityManager
+     * @Doctrine\ORM\Mapping\Column(type="string")
      */
     protected $_em;
 
     /**
      * @var \Doctrine\ORM\Mapping\ClassMetadata
+     * @Doctrine\ORM\Mapping\Column(type="string")
      */
     protected $_class;
 

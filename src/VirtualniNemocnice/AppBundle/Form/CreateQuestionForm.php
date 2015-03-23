@@ -26,7 +26,7 @@ class CreateQuestionForm extends AbstractType
                     'label' => 'Váš dotaz',
                 ));
                 break;
-            case 3:
+            case 4:
                 $builder->add('answerType', 'choice',
                     array(
                         'label' => 'Jak rychle potřebujete znát odpověd?',

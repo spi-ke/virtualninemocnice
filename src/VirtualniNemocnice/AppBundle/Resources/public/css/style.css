@@ -6212,3 +6212,9 @@ body {
 footer {
   margin: 50px 0;
 }
+li.craue_formflow_done_step {
+  text-decoration: line-through;
+}
+.craue_formflow_buttons .btn {
+  margin-left: 10px;
+}

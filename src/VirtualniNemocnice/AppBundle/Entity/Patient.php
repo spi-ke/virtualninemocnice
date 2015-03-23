@@ -2,82 +2,87 @@
 
 namespace VirtualniNemocnice\AppBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Class Patient
  *
- * @Doctrine\ORM\Mapping\Entity
- * @Doctrine\ORM\Mapping\Table(name="patient")
- * @package VirtualniNemocnice\AppBundle\Entity
+ * @ORM\Entity
+ * @ORM\Table(name="patient")
+ * @ORM\Entity(repositoryClass="VirtualniNemocnice\AppBundle\Repository\PatientRepository")
  */
 class Patient
 {
     /** @var  int
-     * @Doctrine\ORM\Mapping\Id
-     * @Doctrine\ORM\Mapping\GeneratedValue(strategy="AUTO")
-     * @Doctrine\ORM\Mapping\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="integer")
      */
     protected $id;
     /** @var  string
-     * @Doctrine\ORM\Mapping\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=100)
      */
     protected $email;
     /**
-     * @Doctrine\ORM\Mapping\Column(type="string", length=20)
+     * @ORM\Column(type="string", length=20, nullable=true)
      */
     protected $phone;
     /**
-     * @Doctrine\ORM\Mapping\Column(type="string", length=6)
+     * @ORM\Column(type="string", length=6)
      */
     protected $sex;
     /**
-     * @Doctrine\ORM\Mapping\Column(type="integer")
+     * @ORM\Column(type="integer")
      */
     protected $age;
     /**
-     * @Doctrine\ORM\Mapping\Column(type="string", length=500)
+     * @ORM\Column(type="string", length=500, nullable=true)
      */
     protected $illness;
     /**
-     * @Doctrine\ORM\Mapping\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     protected $height;
     /**
-     * @Doctrine\ORM\Mapping\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     protected $weight;
     /**
-     * @Doctrine\ORM\Mapping\Column(type="string", length=500)
+     * @ORM\Column(type="string", length=500, nullable=true)
      */
     protected $familyIllness;
     /**
-     * @Doctrine\ORM\Mapping\Column(type="string", length=500)
+     * @ORM\Column(type="string", length=500, nullable=true)
      */
     protected $medications;
     /**
-     * @Doctrine\ORM\Mapping\Column(type="string", length=500)
+     * @ORM\Column(type="string", length=500, nullable=true)
      */
     protected $surgicalProcedures;
     /**
-     * @Doctrine\ORM\Mapping\Column(type="string")
+     * @ORM\Column(type="string")
      */
     protected $query;
     /**
-     * @Doctrine\ORM\Mapping\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=50)
      */
     protected $answerType;
     /**
-     * @Doctrine\ORM\Mapping\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=50)
      */
     protected $paymentType;
     /**
-     * @Doctrine\ORM\Mapping\Column(type="datetime")
+     * @ORM\Column(type="datetime")
      */
     protected $createdAt;
     /**
-     * @Doctrine\ORM\Mapping\Column(type="datetime")
+     * @ORM\Column(type="datetime")
      */
     protected $modifiedAt;
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    protected $visible;
 
     /**
      * @return int
