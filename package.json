@@ -1,7 +1,7 @@
 {
     "name": "virtualninemocnice",
     "version": "1.0.0",
-    "description": "Virtualni nemocnice: Poradna",
+    "description": "Virtualni nemocnice Poradna",
     "main": "Gruntfile.js",
     "directories": {
         "doc": "doc"
