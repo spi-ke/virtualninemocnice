@@ -30,11 +30,3 @@ monolog:
             type:   logentries
             token:  e32ae5f3-cf45-4a8b-9de2-8471a83eb2a9
             level:  info
-
-hwi_oauth:
-    firewall_name: main
-    resource_owners:
-        facebook:
-            type:                facebook
-            client_id:           "%facebook_app_id.prod%"
-            client_secret:       "%facebook_app_secret.prod%"
