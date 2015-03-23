@@ -3,7 +3,6 @@ module.exports = function (grunt) {
 
     var config = {
         bower: grunt.file.readJSON('.bowerrc'),
-        resources: './src/VirtualniNemocnice/AppBundle/Resources/public',
         dist: './src/VirtualniNemocnice/AppBundle/Resources/public'
     };
     //Initializing the configuration object
@@ -13,15 +12,33 @@ module.exports = function (grunt) {
         // Task configuration
         concat: {
             options: {
-                separator: ';'
+                separator: '\n'
             },
             js_app: {
                 src: [
-                    '<%= config.bower.directory %>/jquery/dist/js/jquery.min.js',
+                    '<%= config.bower.directory %>/jquery/dist/jquery.min.js',
                     '<%= config.bower.directory %>/bootstrap/dist/js/bootstrap.js',
-                    '<%= config.resources %>/js/base.js'
+                    '<%= config.dist %>/js/base.js'
                 ],
                 dest: './src/VirtualniNemocnice/AppBundle/Resources/public/js/script.js'
+            }
+        },
+        copy: {
+            main: {
+                files: [
+                    {
+                        cwd: '<%= config.bower.directory %>/bootstrap/dist/css/',
+                        src: 'bootstrap.css.map',
+                        dest: '<%= config.dist %>/css/',
+                        expand: true
+                    },
+                    {
+                        cwd: '<%= config.bower.directory %>/jquery/dist/',
+                        src: 'jquery.min.map',
+                        dest: '<%= config.dist %>/js/',
+                        expand: true
+                    },
+                ]
             }
         },
         less: {
@@ -40,7 +57,7 @@ module.exports = function (grunt) {
             },
             app: {
                 files: {
-                    '<%= config.dist %>/js/script.js': '<% config.resources %>/js/script.js'
+                    '<%= config.dist %>/js/script.js': '<% config.dist %>/js/script.js'
                 }
             }
         },
@@ -155,10 +172,11 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-concurrent');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     // Task definition
-    grunt.registerTask('init', ['less', 'concat']);
-    grunt.registerTask('heroku', ['less', 'concat']);
+    grunt.registerTask('init', ['less', 'concat', 'copy']);
+    grunt.registerTask('heroku', ['less', 'concat', 'copy']);
     grunt.registerTask('default', ['shell:npmInstall', 'concurrent:target']);
     grunt.registerTask('update', ['shell:composerSelfUpdate', 'concurrent:update']);
 
