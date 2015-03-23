@@ -32,7 +32,6 @@
     "sensio/generator-bundle": "~2.3"
   },
   "scripts": {
-    "postinstall":"echo postinstall time; ./node_modules/grunt-cli/bin/grunt init -v",
     "post-root-package-install": [
       "SymfonyStandard\\Composer::hookRootPackageInstall"
     ],

@@ -16,7 +16,7 @@ module.exports = function (grunt) {
             },
             js_app: {
                 src: [
-                    '<%= config.bower.directory %>/jquery/dist/jquery.min.js',
+                    '<%= config.dist %>/js/jquery.min.js',
                     '<%= config.bower.directory %>/bootstrap/dist/js/bootstrap.js',
                     '<%= config.dist %>/js/base.js'
                 ],
