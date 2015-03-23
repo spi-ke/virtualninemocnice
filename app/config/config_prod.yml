@@ -10,16 +10,31 @@ imports:
 #        metadata_cache_driver: apc
 #        result_cache_driver: apc
 #        query_cache_driver: apc
-
+doctrine:
+    dbal:
+        default_connection: prod
 monolog:
     handlers:
         main:
             type:         fingers_crossed
-            action_level: error
+            action_level: info
             handler:      nested
         nested:
             type:  stream
-            path:  "%kernel.logs_dir%/%kernel.environment%.log"
-            level: debug
+            path: "php://stderr"
+#           path:  "%kernel.logs_dir%/%kernel.environment%.log"
+            level: info
         console:
             type:  console
+        logentries:
+            type:   logentries
+            token:  e32ae5f3-cf45-4a8b-9de2-8471a83eb2a9
+            level:  info
+
+hwi_oauth:
+    firewall_name: main
+    resource_owners:
+        facebook:
+            type:                facebook
+            client_id:           "%facebook_app_id.prod%"
+            client_secret:       "%facebook_app_secret.prod%"
