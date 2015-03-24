@@ -18,18 +18,17 @@ class QuestionController extends Controller
      * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      * @Template
      */
-    public function createAction(Request $request)
+    public function createAction()
     {
         $formData = new Patient(); // Your form data class. Has to be an object, won't work properly with an array.
 
         $flow = $this->get('app.form.flow.createQuestion'); // must match the flow's service id
         $flow->bind($formData);
+//        $flow->setGenericFormOptions(array('method' => 'GET'));
         // form of the current step
         $form = $flow->createForm();
         if ($flow->isValid($form)) {
             $flow->saveCurrentStepData($form);
-//            $params = $this->get('craue_formflow_util')->addRouteParameters(array_merge($request->query->all(),
-//                $request->attributes->get('_route_params')), $flow);
 
             if ($flow->nextStep()) {
                 // form for the next step
@@ -39,6 +38,7 @@ class QuestionController extends Controller
                 $this->get('patient.repository')->storePatient($formData);
                 $flow->reset(); // remove step data from the session
 
+                // success message
                 $flash = $this->get('braincrafted_bootstrap.flash');
                 $flash->success('Děkujeme za vytvoření dotazu, byl vám odeslán informační email.');
 

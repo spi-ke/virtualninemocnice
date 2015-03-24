@@ -1,0 +1,41 @@
+VirtualniNemocnice\AppBundle\Entity\Patient:
+    properties:
+        email:
+            - Email:
+                message: Email {{ value }} není ve správném tvaru.
+                groups: [flow_createQuestion_step1]
+            - NotBlank:
+                groups: [flow_createQuestion_step1]
+        sex:
+            - NotBlank:
+                groups: [flow_createQuestion_step1]
+                message:  Zvolte jednu z variant.
+        age:
+            - NotBlank:
+                groups: [flow_createQuestion_step1]
+            - Range:
+                min: 10
+                max: 100
+                minMessage: Minimální věk je {{ limit }}
+                maxMessage: Horní věková hranice je {{ limit }}
+                groups: [flow_createQuestion_step1]
+
+        query:
+            - NotBlank:
+                groups: [flow_createQuestion_step2]
+            - Length:
+                min: 10
+                max: 500
+                groups: [flow_createQuestion_step2]
+
+        paymentType:
+            - NotBlank:
+                groups: [flow_createQuestion_step4]
+
+        answerType:
+            - NotBlank:
+                groups: [flow_createQuestion_step4]
+
+
+
+

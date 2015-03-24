@@ -9,19 +9,18 @@ use Symfony\Component\Form\FormTypeInterface;
 class CreateQuestionFlow extends FormFlow
 {
 
-    /**
-     * @var FormTypeInterface
-     */
+    /** @var FormTypeInterface */
     protected $formType;
+    /** @var bool Dynamic step navigation */
+    protected $allowDynamicStepNavigation = true;
 
-    public function setFormType(FormTypeInterface $formType)
+    public function getFormOptions($step, array $options = array())
     {
-        $this->formType = $formType;
-    }
+        $options = parent::getFormOptions($step, $options);
+        $options['cascade_validation'] = true;
+        $options['data_class'] = 'VirtualniNemocnice\AppBundle\Entity\Patient';
 
-    public function getName()
-    {
-        return 'createQuestion';
+        return $options;
     }
 
     protected function loadStepsConfig()
@@ -44,4 +43,15 @@ class CreateQuestionFlow extends FormFlow
             ),
         );
     }
+
+    public function setFormType(FormTypeInterface $formType)
+    {
+        $this->formType = $formType;
+    }
+
+    public function getName()
+    {
+        return 'createQuestion';
+    }
+
 }

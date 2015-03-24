@@ -13,7 +13,8 @@ class CreateQuestionForm extends AbstractType
     {
         switch ($options['flow_step']) {
             case 1:
-                $builder->add('email', 'email', ['label' => 'Email',])
+                $builder
+                    ->add('email', 'email', ['label' => 'Email',])
                     ->add('phone', 'text',
                         ['label' => 'Telefon (nepovinné)', 'required' => false])
                     ->add('sex', 'choice',
@@ -22,17 +23,19 @@ class CreateQuestionForm extends AbstractType
                         ['label' => 'Věk', 'required' => false]);
                 break;
             case 2:
-                $builder->add('query', 'textarea', array(
-                    'label' => 'Váš dotaz',
-                ));
+                $builder
+                    ->add('query', 'textarea', array(
+                        'label' => 'Váš dotaz',
+                    ));
                 break;
             case 4:
-                $builder->add('answerType', 'choice',
-                    array(
-                        'label' => 'Jak rychle potřebujete znát odpověd?',
-                        'choices' => ['fast' => 'Rychlá', 'slow' => 'Pomalá'],
-                        'expanded' => true
-                    ))
+                $builder
+                    ->add('answerType', 'choice',
+                        array(
+                            'label' => 'Jak rychle potřebujete znát odpověd?',
+                            'choices' => ['fast' => 'Rychlá', 'slow' => 'Pomalá'],
+                            'expanded' => true
+                        ))
                     ->add('paymentType', 'choice',
                         array(
                             'label' => 'Zvolte metodu platby',
@@ -46,6 +49,15 @@ class CreateQuestionForm extends AbstractType
                         ));
                 break;
         }
+    }
+
+    public function getDefaultOptions(array $options)
+    {
+
+        return array(
+            'data_class' => 'VirtualniNemocnice\AppBundle\Entity\Patient',
+            'cascade_validation' => true
+        );
     }
 
     public function getName()

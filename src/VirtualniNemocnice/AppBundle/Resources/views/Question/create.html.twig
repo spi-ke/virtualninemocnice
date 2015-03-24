@@ -1,8 +1,6 @@
 {% extends '@VirtualniNemocniceApp/base.html.twig' %}
 
 {% block content %}
-
-
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">Průvodce zadání dotazu
@@ -11,15 +9,9 @@
         </div>
     </div>
 
-
-
     <div class="row">
-
         <div class="col-md-8">
-
-
             {% if flow.getCurrentStepNumber() == 3 %}
-
                 {#{{ dump(flow.formData) }}#}
                 <table class="table table-hover">
                     <thead>
@@ -79,10 +71,8 @@
                 </table>
 
             {% endif %}
-
-            {{ form_start(form) }}
+            {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
             {{ form_errors(form) }}
-
             {{ form_rest(form) }}
 
             {% include 'CraueFormFlowBundle:FormFlow:buttons.html.twig' with {
@@ -95,7 +85,6 @@
             {{ form_end(form) }}
 
         </div>
-
         <div class="col-md-4">
             <h3>Průběh vytváření dotazu</h3>
 
@@ -103,9 +92,7 @@
                 Kroky:
                 {% include 'CraueFormFlowBundle:FormFlow:stepList.html.twig' %}
             </div>
-
         </div>
-
     </div>
 
 {% endblock %}
