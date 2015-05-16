@@ -18,14 +18,16 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
             new Craue\FormFlowBundle\CraueFormFlowBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
             new VirtualniNemocnice\AppBundle\VirtualniNemocniceAppBundle(),
+
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
             $bundles[] = new Symfony\Bundle\DebugBundle\DebugBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
-        }
+         }
 
         return $bundles;
     }

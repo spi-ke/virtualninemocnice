@@ -12,6 +12,23 @@ class QuestionController extends Controller
 {
 
     /**
+     * Messaga main page
+     *
+     * @Route("/poradna/dotaz", name="detailQuestion")
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     * @Template
+     */
+    public function detailAction(Request $request)
+    {
+        $email = $request->get('email');
+        $token = $this->container->getParameter('secret') . $email;
+        if ($token == $request->get('token')) {
+            $this->get('patient.repository')->getPationByEmail($email);
+        }
+    }
+
+
+    /**
      * Question form Action
      *
      * @Route("/poradna/dotaz/novy", name="createQuestion")
@@ -35,8 +52,11 @@ class QuestionController extends Controller
                 $form = $flow->createForm();
             } else {
                 // flow finished
-                $this->get('patient.repository')->storePatient($formData);
+                $patient = $this->get('patient.repository')->storePatient($formData);
                 $flow->reset(); // remove step data from the session
+
+                // send confirmation email
+                $this->get('app.mailer')->sendConfirmationToUser($patient);
 
                 // success message
                 $flash = $this->get('braincrafted_bootstrap.flash');
@@ -50,17 +70,5 @@ class QuestionController extends Controller
             'form' => $form->createView(),
             'flow' => $flow,
         ];
-    }
-
-    /**
-     * Question form Action
-     *
-     * @Route("/poradna/dotaz", name="detailQuestion")
-     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
-     * @Template
-     */
-    public function detailAction(Request $request)
-    {
-
     }
 }

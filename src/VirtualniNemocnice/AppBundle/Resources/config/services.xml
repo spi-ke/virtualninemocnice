@@ -4,6 +4,12 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
+    <parameters>
+        <parameter key="patient.repository.class">VirtualniNemocnice\AppBundle\Repository\PatientRepository</parameter>
+        <parameter key="patient.class">VirtualniNemocnice\AppBundle\Entity\Patient</parameter>
+        <parameter key="mailer.class">VirtualniNemocnice\AppBundle\Entity\Email</parameter>
+    </parameters>
+
     <services>
         <service id="app.form.createQuestion"
                  class="VirtualniNemocnice\AppBundle\Form\CreateQuestionForm">
@@ -19,11 +25,18 @@
             </call>
         </service>
 
-        <service id="patient.repository" class="VirtualniNemocnice\AppBundle\Repository\PatientRepository"
+        <service id="patient.repository" class="%patient.repository.class%"
                  factory-service="doctrine.orm.entity_manager"
                  factory-method="getRepository">
             <argument>VirtualniNemocniceAppBundle:Patient</argument>
         </service>
+
+        <service id="app.mailer" class="%mailer.class%">
+            <argument type="service" id="mailer" />
+            <argument type="service" id="twig" />
+            <argument type="service" id="service_container" />
+        </service>
+
     </services>
 
 </container>

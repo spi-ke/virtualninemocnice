@@ -4,21 +4,24 @@ namespace VirtualniNemocnice\AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends Controller
 {
     /**
-     * @param $name
+     * @param $request
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/{name}", name="home", defaults={"name" = "World"})
+     * @Route("/", name="home")
      * @Template
      */
-    public function indexAction($name)
+    public function indexAction(Request $request)
     {
-        $questines = $this->get('patient.repository')->findAllPatientQuestines();
+
+        $patients = $this->get('patient.repository')->findAllPatientQuestions();
+
         return [
-            'questines' => $questines
+            'patients' => $patients
         ];
     }
 }
