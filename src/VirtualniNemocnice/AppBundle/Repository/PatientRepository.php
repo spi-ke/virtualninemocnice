@@ -7,11 +7,31 @@ use VirtualniNemocnice\AppBundle\Entity\Patient;
 
 class PatientRepository extends EntityRepository
 {
+
+
     /**
-     * @param Patient $patient
-     * @return bool
+     * Find patient by email
+     *
+     * @param $email
+     * @return null|object
      */
-    public function storePatient(Patient $patient)
+    public function getPatientByEmail($email)
+    {
+        /** @var Patient $patient */
+        $patient = $this->findOneBy(['email'=> $email]);
+        if ($patient) {
+            return $patient;
+        }
+
+        return null;
+    }
+
+    /**
+     * list of all active qu
+     * @param Patient $patient
+     * @return bool|Patient
+     */
+    public function storePatient($patient)
     {
         if ($patient) {
             $patient->setCreatedAt(new \DateTime());
@@ -21,16 +41,19 @@ class PatientRepository extends EntityRepository
             $entityManager->persist($patient);
             $entityManager->flush();
 
-            return true;
+            return $patient;
         }
 
         return false;
     }
 
-    public function findAllPatientQuestines()
+    /**
+     * list all questions
+     * @return array
+     */
+    public function findAllPatientQuestions()
     {
         return $this->findAll();
 
     }
-
 }
