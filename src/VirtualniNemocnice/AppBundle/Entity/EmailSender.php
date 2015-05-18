@@ -2,15 +2,14 @@
 
 namespace VirtualniNemocnice\AppBundle\Entity;
 
-use Symfony\Bundle\TwigBundle\TwigEngine;
+use Psr\Log\LoggerAwareInterface;
+use Psr\Log\LoggerAwareTrait;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Log\LoggerInterface;
-use Symfony\Component\Routing\Router;
 
-class Email
+class Email implements LoggerAwareInterface
 {
-
+    use LoggerAwareTrait;
     /** @var LoggerInterface */
     protected $log;
     /** @var \Swift_Mailer */
@@ -44,6 +43,7 @@ class Email
             ['email' => $patient->getEmail(), 'token' => $token]
         );
 
+        /** @var \Swift_Message $message */
         $message = \Swift_Message::newInstance()
             ->setSubject('Nový dotaz')
             ->setFrom('noreply@virtualninemocnice.cz')
@@ -52,9 +52,16 @@ class Email
                 $this->engine->render(
                     'VirtualniNemocniceAppBundle:Email:emailToPatient.html.twig',
                     ['patient' => $patient, 'questionDetail' => $questionDetail]
-                )
+                ),
+                'text/html'
             );
 
-        $this->container->get('mailer')->send($message);
+        try {
+            $this->container->get('mailer')->send($message);
+            $this->logger->info('Email sent to user email: '.$patient->getEmail());
+        } catch (\Exception $e) {
+            $this->logger->error('Email not sent to user email: '.$patient->getEmail() . ', ' .
+                $e->getMessage());
+        }
     }
 }

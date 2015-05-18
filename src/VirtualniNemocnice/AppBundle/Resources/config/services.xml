@@ -7,7 +7,7 @@
     <parameters>
         <parameter key="patient.repository.class">VirtualniNemocnice\AppBundle\Repository\PatientRepository</parameter>
         <parameter key="patient.class">VirtualniNemocnice\AppBundle\Entity\Patient</parameter>
-        <parameter key="mailer.class">VirtualniNemocnice\AppBundle\Entity\Email</parameter>
+        <parameter key="mailer.class">VirtualniNemocnice\AppBundle\Entity\EmailSender</parameter>
     </parameters>
 
     <services>
