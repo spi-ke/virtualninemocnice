@@ -5,13 +5,11 @@ namespace VirtualniNemocnice\AppBundle\Entity;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\HttpKernel\Log\LoggerInterface;
 
-class Email implements LoggerAwareInterface
+class EmailSender implements LoggerAwareInterface
 {
     use LoggerAwareTrait;
-    /** @var LoggerInterface */
-    protected $log;
+
     /** @var \Swift_Mailer */
     protected $mailer;
     /** @var \Twig_Environment */
@@ -34,6 +32,7 @@ class Email implements LoggerAwareInterface
 
     /**
      * @param Patient $patient
+     * @return bool
      */
     public function sendConfirmationToUser(Patient $patient)
     {
@@ -58,10 +57,15 @@ class Email implements LoggerAwareInterface
 
         try {
             $this->container->get('mailer')->send($message);
-            $this->logger->info('Email sent to user email: '.$patient->getEmail());
+            $this->logger->info('Email sent to user email: ' . $patient->getEmail());
+
+            return true;
         } catch (\Exception $e) {
-            $this->logger->error('Email not sent to user email: '.$patient->getEmail() . ', ' .
-                $e->getMessage());
+            $this->logger->error('Email not sent to user email: ' . $patient->getEmail() .
+                ', ' . $e->getMessage(), ['exception' => $e]);
+
         }
+
+        return false;
     }
 }

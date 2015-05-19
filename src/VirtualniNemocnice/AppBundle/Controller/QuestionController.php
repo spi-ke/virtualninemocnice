@@ -41,7 +41,7 @@ class QuestionController extends Controller
 
         $flow = $this->get('app.form.flow.createQuestion'); // must match the flow's service id
         $flow->bind($formData);
-//        $flow->setGenericFormOptions(array('method' => 'GET'));
+
         // form of the current step
         $form = $flow->createForm();
         if ($flow->isValid($form)) {
@@ -61,7 +61,7 @@ class QuestionController extends Controller
                 // success message
                 $flash = $this->get('braincrafted_bootstrap.flash');
                 $flash->success('Děkujeme za vytvoření dotazu, byl vám odeslán informační email.');
-
+                $this->get('logger')->info('Created new question! Email:'.$patient->getEmail());
                 return $this->redirect($this->generateUrl('home')); // redirect when done
             }
         }
