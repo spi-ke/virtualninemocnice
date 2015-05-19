@@ -47,7 +47,12 @@ module.exports = function (grunt) {
             },
             app: {
                 files: {
-                    '<%= config.dist %>/css/style.css': "<%= config.dist %>/less/style.less"
+                    '<%= config.dist %>/css/style.css': "<%= config.dist %>/less/style.less",
+                }
+            },
+            home: {
+                files: {
+                    '<%= config.dist %>/css/homepage.css': "<%= config.dist %>/less/homepage.less"
                 }
             }
         },
