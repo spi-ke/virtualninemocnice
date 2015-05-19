@@ -29,10 +29,10 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% for questin in questines %}
+                {% for patient in patients %}
                     <tr>
-                        <th><a href="{{ path('detailQuestion') }}">{{ questin.email }}</a></th>
-                        <td>{{ questin.query }}</td>
+                        <th><a href="{{ path('detailQuestion') }}">{{ patient.email }}</a></th>
+                        <td>{{ patient.query }}</td>
                     </tr>
                 {% endfor %}
                 </tbody>
