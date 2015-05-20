@@ -6585,6 +6585,8 @@ button.close {
 
 body {
   overflow-x: hidden;
+  font-family: "Neue Helvetica W02", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 100;
 }
 p {
   font-size: 20px;
@@ -6592,16 +6594,14 @@ p {
 p.small {
   font-size: 16px;
 }
-@media (min-width: 992px) {
-  .container {
-    width: 750px;
-  }
-}
 .spacer {
   margin-top: 20px;
 }
 .standalone {
   margin-bottom: 20px;
+}
+.underline {
+  text-decoration: underline;
 }
 a,
 a:hover,
@@ -6616,7 +6616,6 @@ p.small {
 }
 h4 {
   margin-bottom: 0;
-  font-weight: bold;
 }
 h1,
 h2,
@@ -6624,7 +6623,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Neue Helvetica W02", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .img-centered {
   margin: 0 auto;
@@ -6638,14 +6637,11 @@ header .container {
   padding-top: 100px;
   padding-bottom: 100px;
 }
-header .intro-text .name {
+header .intro-text {
   display: block;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 3em !important;
-}
-header .intro-text .skills {
-  font-size: 1.25em;
-  font-weight: 300;
+  font-family: "Neue Helvetica W02", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  font-size: 48px !important;
 }
 @media (min-width: 768px) {
   header .container {
