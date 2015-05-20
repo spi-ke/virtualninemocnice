@@ -6658,6 +6658,10 @@ header .intro-text {
 .navbar-default .navbar-brand {
   color: #ffffff;
 }
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #4bcaff;
+}
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
   background-color: #ffffff;
