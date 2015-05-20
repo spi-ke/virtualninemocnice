@@ -6678,6 +6678,12 @@ header .intro-text {
 }
 .navbar-brand {
   padding: 10px 15px;
+  font-size: 26px;
+}
+.navbar-brand span {
+  color: #4bcaff;
+  font-weight: bold;
+  font-size: 38px;
 }
 @media (min-width: 768px) {
   .navbar-static-top {
