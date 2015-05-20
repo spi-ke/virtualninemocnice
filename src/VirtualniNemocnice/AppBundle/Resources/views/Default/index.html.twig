@@ -34,7 +34,7 @@
 <body id="home" class="index">
 
 <!-- Navigation -->
-<nav class="navbar navbar-static-top">
+<nav class="navbar navbar-default navbar-static-top">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
@@ -80,10 +80,10 @@
             </div>
         </div>
         <div class="row spacer">
-            <div class="col-md-6 text-right">
+            <div class="col-md-6 col-xs-6 text-right">
                <a href="{{ path('createQuestion') }}" class="btn btn-primary btn-lg">Mluvit s lékařem</a>
             </div>
-            <div class="col-md-6 text-left page-scroll">
+            <div class="col-md-6 col-xs-6 text-left page-scroll">
                <a href="#steps" class="btn btn-secondary btn-lg">Jak to funguje</a>
             </div>
         </div>
@@ -100,10 +100,10 @@
         </div>
         <div class="row"style="height: 200px;"></div>
         <div class="row spacer">
-            <div class="col-md-6 text-right">
+            <div class="col-md-6 col-xs-6 text-right">
                 <a href="{{ path('createQuestion') }}" class="btn btn-secondary btn-lg">Položit dotaz</a>
             </div>
-            <div class="col-md-6 text-left page-scroll">
+            <div class="col-md-6 col-xs-6 text-left page-scroll">
                 <a href="#price" class="btn btn-primary btn-lg">Kolik to stojí</a>
             </div>
         </div>
@@ -172,8 +172,20 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    domů | jak to funguje | cena | o nás
-                </div>
+                    <ul class="footer-nav">
+                        <li class="page-scroll active">
+                            <a href="#home">domů</a> |
+                        </li>
+                        <li class="page-scroll">
+                            <a href="#steps">jak to funguje?</a> |
+                        </li>
+                        <li class="page-scroll">
+                            <a href="#price">cena</a> |
+                        </li>
+                        <li class="page-scroll">
+                            <a href="#about">o nás</a>
+                        </li>
+                    </ul>                </div>
             </div>
         </div>
     </div>

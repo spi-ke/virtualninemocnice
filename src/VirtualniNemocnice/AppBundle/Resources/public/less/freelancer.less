@@ -96,9 +96,16 @@ header {
   }
 }
 
+.navbar-default .navbar-brand {
+  color: @brand-white;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: @brand-white;
+}
 @media (min-width: 768px) {
-  .navbar-fixed-top {
-    padding: 25px 0;
+  .navbar-static-top {
+    padding: 15px 0;
     .navbar-brand {
       font-size: 1.5em;
       color: @brand-white;
@@ -112,10 +119,12 @@ header {
     }
   }
 }
+
 .nav > li > a:hover, .nav > li > a:focus {
   background-color: transparent;
   text-decoration: underline;
 }
+
 .navbar {
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: @brand-gray;
@@ -191,33 +200,30 @@ section.about {
   padding: 10px 30px;
 }
 
-.btn-default {
-  &:hover {
-    background-color: @brand-white;
-    color: @brand-gray;
-  }
+.btn-default,
+.btn-default:hover,
+.btn-default:active,
+.btn-default:focus,
+{
   background-color: @brand-white;
   color: @brand-gray;
 }
 
-.btn-primary {
-  &:hover {
-    background-color: @brand-blue;
-    border-color: @brand-white;
-    color: @brand-white;
-
-  }
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus,
+{
   background-color: @brand-blue;
   border-color: @brand-white;
   color: @brand-white;
 }
 
-.btn-secondary {
-  &:hover {
-    background-color: @brand-white;
-    color: @brand-blue;
-    border: 1px @brand-blue solid;
-  }
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:active,
+.btn-secondary:focus,
+{
   background-color: @brand-white;
   color: @brand-blue;
   border: 1px @brand-blue solid;
@@ -311,7 +317,24 @@ footer {
   }
   .footer-below {
     padding: 25px 0;
-    background-color: darken(@brand-primary, 5%);
+    background-color: @brand-gray;
+  }
+  .footer-nav {
+    padding-left: 0;
+    li:not(:first-child) {
+      a {
+        padding-left: 5px;
+      }
+    }
+    li {
+      list-style-type: none;
+      display: inline;
+      color: @brand-light-gray;
+      a {
+        color: @brand-light-gray;
+        padding-right: 5px;
+      }
+    }
   }
 }
 
