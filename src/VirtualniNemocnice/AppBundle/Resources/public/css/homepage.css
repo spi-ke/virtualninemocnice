@@ -6651,7 +6651,7 @@ header .intro-text {
   font-weight: 100;
   font-size: 48px !important;
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .container {
     width: 800px;
   }
