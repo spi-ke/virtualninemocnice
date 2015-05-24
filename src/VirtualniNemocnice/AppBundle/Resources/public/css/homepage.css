@@ -6586,14 +6586,16 @@ button.close {
 body {
   overflow-x: hidden;
   font-family: "Neue Helvetica W02", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 100;
   font-size: 16px;
 }
-p {
+p.large {
   font-size: 20px;
 }
 p.small {
-  font-size: 16px;
+  font-size: 14px;
+}
+h2 {
+  font-size: 24px;
 }
 .spacer {
   margin-top: 20px;
@@ -6618,6 +6620,10 @@ p.small {
 }
 h4 {
   margin-bottom: 0;
+}
+span.large-font {
+  font-size: 64px;
+  font-weight: 100;
 }
 h1,
 h2,
@@ -6698,18 +6704,13 @@ header .intro-text {
   }
   .navbar-static-top .navbar-brand {
     font-size: 32px;
+    font-weight: 100;
     color: #ffffff;
   }
   .navbar-static-top .navbar-brand span {
     color: #4bcaff;
     font-weight: bold;
     font-size: 38px;
-  }
-  .navbar-fixed-top.navbar-shrink {
-    padding: 10px 0;
-  }
-  .navbar-fixed-top.navbar-shrink .navbar-brand {
-    font-size: 1em;
   }
 }
 .nav > li > a:hover,
@@ -6734,8 +6735,8 @@ header .intro-text {
   background-color: transparent;
 }
 .navbar .navbar-nav li a {
-  font-size: 16px;
   color: #ffffff;
+  font-weight: 100;
 }
 .navbar .navbar-nav li a:focus {
   outline: none;
@@ -6749,7 +6750,6 @@ section {
 }
 section h2 {
   margin: 20px 0;
-  font-size: 1.5em;
 }
 section.steps {
   background: #4bcaff;
@@ -6819,7 +6819,7 @@ section.about {
   background-position: -50px 0;
 }
 .btn-lg {
-  padding: 10px 30px;
+  padding: 10px 40px;
   font-size: 22px;
 }
 .btn-default,

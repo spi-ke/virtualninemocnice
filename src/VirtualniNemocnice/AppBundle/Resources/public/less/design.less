@@ -4,17 +4,20 @@
 body {
   overflow-x: hidden;
   font-family: "Neue Helvetica W02", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 100;
   font-size: 16px;
 }
 
 p {
-  font-size: 20px;
+  &.large {
+    font-size: 20px;
+  }
   &.small {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
-
+h2 {
+  font-size: 24px;
+}
 .spacer {
   margin-top: 20px;
 }
@@ -44,7 +47,10 @@ p.small {
 h4 {
   margin-bottom: 0;
 }
-
+span.large-font {
+  font-size: 64px;
+  font-weight: 100;
+}
 h1, h2, h3, h4, h5, h6 {
   font-family: "Neue Helvetica W02", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -139,14 +145,8 @@ header {
         font-size: 38px;
       }
       font-size: 32px;
+      font-weight: 100;
       color: @brand-white;
-    }
-  }
-
-  .navbar-fixed-top.navbar-shrink {
-    padding: 10px 0;
-    .navbar-brand {
-      font-size: 1em;
     }
   }
 }
@@ -173,9 +173,8 @@ header {
         background-color: transparent;
       }
       a {
-        font-size: 16px;
         color: @brand-white;
-        //padding: 15px 10px;
+        font-weight: 100;
       }
       a:focus {
         outline: none;
@@ -193,7 +192,6 @@ section {
   padding: 30px 0;
   h2 {
     margin: 20px 0;
-    font-size: 1.5em;
   }
 }
 
@@ -275,7 +273,7 @@ section.about {
 }
 
 .btn-lg {
-  padding: 10px 30px;
+  padding: 10px 40px;
   font-size: 22px;
 }
 
