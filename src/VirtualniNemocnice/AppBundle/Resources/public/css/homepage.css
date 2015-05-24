@@ -6594,8 +6594,20 @@ p.large {
 p.small {
   font-size: 14px;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Neue Helvetica W02", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 h2 {
   font-size: 24px;
+}
+h4,
+h3 {
+  margin-bottom: 0;
 }
 .spacer {
   margin-top: 20px;
@@ -6615,23 +6627,9 @@ a.active {
   color: #4bcaff;
   outline: none;
 }
-p.small {
-  font-size: 14px;
-}
-h4 {
-  margin-bottom: 0;
-}
 span.large-font {
   font-size: 64px;
-  font-weight: 100;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Neue Helvetica W02", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 200;
 }
 .img-centered {
   margin: 0 auto;
@@ -6703,7 +6701,7 @@ header .intro-text {
     padding: 15px 0;
   }
   .navbar-static-top .navbar-brand {
-    font-size: 32px;
+    font-size: 36px;
     font-weight: 100;
     color: #ffffff;
   }
@@ -6729,14 +6727,14 @@ header .intro-text {
 .navbar .navbar-nav {
   letter-spacing: 1px;
 }
+.navbar .navbar-nav li a {
+  color: #ffffff;
+  font-size: 14px;
+}
 .navbar .navbar-nav li.active > a {
   color: #4bcaff;
   text-decoration: underline;
   background-color: transparent;
-}
-.navbar .navbar-nav li a {
-  color: #ffffff;
-  font-weight: 100;
 }
 .navbar .navbar-nav li a:focus {
   outline: none;
