@@ -1,3 +1,65 @@
+
+/* buttons */
+@media (min-width: 768px) {
+
+  .btn-lg {
+    padding: 10px 40px;
+    font-size: 22px;
+  }
+}
+
+.btn-default,
+.btn-default:hover,
+.btn-default:active,
+.btn-default:focus,
+{
+  background-color: @brand-white;
+  color: @brand-gray;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus,
+{
+  background-color: @brand-blue;
+  border-color: @brand-white;
+  color: @brand-white;
+}
+
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:active,
+.btn-secondary:focus,
+{
+  background-color: @brand-white;
+  color: @brand-blue;
+  border: 1px @brand-blue solid;
+}
+
+.btn-outline {
+  color: white;
+  font-size: 20px;
+  border: solid 2px white;
+  background: transparent;
+  transition: all 0.3s ease-in-out;
+  margin-top: 15px;
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    color: @brand-success;
+    background: white;
+    border: solid 2px white;
+  }
+}
+
+.btn:focus,
+.btn:active,
+.btn.active {
+  outline: none;
+}
+
 .craue_formflow_buttons .btn {
   margin-left: 10px;
 }
