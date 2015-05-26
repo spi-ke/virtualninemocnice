@@ -6596,6 +6596,57 @@ footer {
 li.craue_formflow_done_step {
   text-decoration: line-through;
 }
+/* buttons */
+@media (min-width: 768px) {
+  .btn-lg {
+    padding: 10px 40px;
+    font-size: 22px;
+  }
+}
+.btn-default,
+.btn-default:hover,
+.btn-default:active,
+.btn-default:focus {
+  background-color: #ffffff;
+  color: #535c62;
+}
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus {
+  background-color: #4bcaff;
+  border-color: #ffffff;
+  color: #ffffff;
+}
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:active,
+.btn-secondary:focus {
+  background-color: #ffffff;
+  color: #4bcaff;
+  border: 1px #4bcaff solid;
+}
+.btn-outline {
+  color: white;
+  font-size: 20px;
+  border: solid 2px white;
+  background: transparent;
+  transition: all 0.3s ease-in-out;
+  margin-top: 15px;
+}
+.btn-outline:hover,
+.btn-outline:focus,
+.btn-outline:active,
+.btn-outline.active {
+  color: #4bcaff;
+  background: white;
+  border: solid 2px white;
+}
+.btn:focus,
+.btn:active,
+.btn.active {
+  outline: none;
+}
 .craue_formflow_buttons .btn {
   margin-left: 10px;
 }
