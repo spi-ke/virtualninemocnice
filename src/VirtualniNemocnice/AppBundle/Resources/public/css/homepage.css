@@ -6713,6 +6713,7 @@ header .intro-text {
   color: #4bcaff;
   padding: 2px 8px;
   font-weight: bold;
+  margin-top: 10px;
 }
 .icons-note {
   background-position: -100px 0;
@@ -6905,6 +6906,11 @@ section.about {
   display: block;
   float: left;
   margin-top: 10px;
+}
+@media (max-width: 768px) {
+  .note__text {
+    width: auto;
+  }
 }
 .scroll-top {
   position: fixed;
